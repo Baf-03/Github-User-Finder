@@ -15,6 +15,7 @@ function App() {
   const [dataFromApi, setdataFromApi] = useState("")
   const Getapi = async()=>{
     let data = await axios.get(`https://api.github.com/users/${dataFromApi.login}`)
+    console.log(data)
     console.log(data.data.avatar_url)
    
   }
@@ -42,7 +43,7 @@ function App() {
     </Routes>
     
      
-     <footer className='text-center p-5 bg-slate-200'>Copyrights BAF-03</footer>
+     <footer className='text-center p-5 bg-slate-200 fixed bottom-0 w-[100%]'>Copyrights BAF-03</footer>
 
     </>
   )

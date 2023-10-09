@@ -60,16 +60,16 @@ const Person = (props) => {
             {loading?(<div>Loading<CircularProgress color="inherit" /></div>):(<>
             <div className='flex gap-9 flex-col items-center md:flex-row  '>
                 <div><img src={data.avatar_url} className=' sm:w-[30vw] md:w-[20vw] lg:w-[15vw]  rounded-lg' /></div>
-                <div className='relative bg-slate-300 h-[10rem] p-5 rounded-lg'>
+                <div className='relative bg-slate-300 h-[15rem] p-5 rounded-lg'>
                     <div className='flex items-center gap-2 p-0'>
                         <div className='font-bold text-[2rem]'>{data.name}</div>
                         <div>@{data.login}</div>
                     </div>
-                    <div className='gap-2'>Love coding and it will love you in return :)</div>
+                    <div className='gap-2'>{data.bio}</div>
                     <div className='absolute bottom-2 flex gap-5'>
-                        <div>12<br />Followers</div>
-                        <div>12<br />Following</div>
-                        <div>12<br />Repos</div>
+                        <div>{data.followers}<br />Followers</div>
+                        <div>{data.following}<br />Following</div>
+                        <div>{data.public_repos}<br />Repos</div>
                     </div>
                 </div>
             </div>
@@ -77,6 +77,7 @@ const Person = (props) => {
                 <div className='w-[90%] md:w-[50%] '>
                     <h1 className='font-bold text-[2rem] '>Repos</h1>
                     <div className=' overflow-y-scroll md:overflow-visible h-[50vh] md:h-fit'>
+                        
                         {repos.map((element, index) => (
                             <div className='border-b-[1px] border-b-gray-500 p-5 justify-start' key={index}>
                                 <div className='p-1'><a href={element.link} className='no-underline text-green-700 text-lg'>{element.name}</a></div>
